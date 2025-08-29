@@ -3,7 +3,7 @@ import FoodCard from "./components/FoodCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
+import Image from "next/image";
 
 export default function Home() {
   const [meals, setMeals] = useState<any[]>([]);
@@ -34,6 +34,9 @@ export default function Home() {
 
       <Header></Header>
 
+      <Image src={'/paprika.png'} width={200} height={200} alt="paprika" className="fixed drop-shadow-2xl ml-[10vw] drop-shadow-[#FAD52F]"></Image>
+      <Image src={'/basil.png'} width={150} height={150} alt="paprika" className="fixed drop-shadow-2xl ml-[5vw] -mt-[15vw] drop-shadow-[#284917]"></Image>
+      <Image src={'/chili.png'} width={200} height={200} alt="paprika" className="fixed drop-shadow-2xl ml-[80vw] drop-shadow-red-500"></Image>
       {/* 🔹 Cards with motion */}
       <div className="flex flex-row gap-10 w-full justify-center mt-[10vw]">
         {meals.map((meal) => (
