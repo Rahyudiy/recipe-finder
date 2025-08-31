@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #083103;
   --foreground: #171717;
   --font-montserrat: "Montserrat", sans-serif;
 }
@@ -15,7 +15,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #F0EFF4;
     --foreground: #ededed;
   }
 }
