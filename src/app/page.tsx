@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "./components/Header";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function Home() {
   const [allMeals, setAllMeals] = useState<any[]>([]);
@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[url('/bg-noodle.png')] h-dvh bg-no-repeat w-full bg-contain bg-bottom overflow-x-hidden">
+    <div className="bg-[url('/bg-noodle.png')] h-dvh bg-no-repeat w-full bg-contain bg-bottom overflow-x-hidden p-2">
       {/* 🔹 Header */}
       <Header></Header>
       <motion.div
@@ -51,7 +51,7 @@ export default function Home() {
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[10vw] drop-shadow-[#fad52f88]"
+          className="fixed drop-shadow-2xl ml-[10vw] drop-shadow-[#fad52f88] w-[10vw] "
         ></Image>
       </motion.div>
       <motion.div
@@ -66,7 +66,7 @@ export default function Home() {
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[85vw] -mt-[15vw] drop-shadow-[#da3b29af]"
+          className="fixed drop-shadow-2xl ml-[85vw] -mt-[15vw]  w-[10vw] drop-shadow-[#da3b29af]"
         ></Image>
       </motion.div>
       <motion.div
@@ -81,7 +81,7 @@ export default function Home() {
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[5vw] -mt-[15vw] drop-shadow-[#284917c7]"
+          className="fixed drop-shadow-2xl ml-[5vw] -mt-[15vw]  w-[10vw] drop-shadow-[#284917c7]"
         ></Image>
       </motion.div>
       <motion.div
@@ -96,25 +96,47 @@ export default function Home() {
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[80vw] drop-shadow-[#ff00009d]"
+          className="fixed drop-shadow-2xl ml-[80vw] drop-shadow-[#ff00009d] w-[10vw] "
         ></Image>
       </motion.div>
       {/* 🔹 Cards with motion */}
-      <div className="mt-[10vw] w-full h-fit flex-col">
-        <button onClick={() => shuffleMeals()}>as</button>
+      <div className="mt-[5vw] w-full h-fit flex-col">
+        <div className="flex justify-end mr-[18vw]">
+          <button
+            onClick={() => shuffleMeals()}
+            className="p-[0.4vw] rounded-full bg-[#FCBC30] hover:rotate-180 transition"
+          >
+            <Image
+              src={"/reload-data-1.svg"}
+              width={50}
+              height={50}
+              alt="reload"
+              className="w-[4vw] "
+            ></Image>
+          </button>
+        </div>
         <div className="flex flex-col md:flex-row items-center gap-10 w-full justify-center">
-          {meals.map((meal) => (
-            <div key={meal.idMeal} className="relative w-60 h-60">
-              <Link href={`/meal/${meal.idMeal}`}>
-                <FoodCard
-                  foodName={meal.strMeal}
-                  image={meal.strMealThumb}
-                  category={meal.strCategory}
-                  area={meal.strArea}
-                />
-              </Link>
-            </div>
-          ))}
+          <AnimatePresence mode="wait">
+            {meals.map((meal) => (
+              <motion.div
+                key={meal.idMeal}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.5 }}
+                className="relative"
+              >
+                <Link href={`/meal/${meal.idMeal}`}>
+                  <FoodCard
+                    foodName={meal.strMeal}
+                    image={meal.strMealThumb}
+                    category={meal.strCategory}
+                    area={meal.strArea}
+                  />
+                </Link>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </div>

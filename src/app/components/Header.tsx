@@ -5,11 +5,11 @@ import SearchBar from "./SearchBar";
 const Header = () => {
   return (
     <div>
-      <nav className="flex justify-end p-4">
+      <nav className="flex justify-end">
         <SearchBar></SearchBar>
       </nav>
       <div className="flex flex-col w-full justify-center items-center text-[#FFBE41]">
-        <Image src="/logo.png" alt="Logo" width={100} height={100} />
+        <Image src="/logo.png" alt="Logo" width={100} height={100} className="w-[6vw]" />
         <h1 className="uppercase font-extrabold  text-[5vw] tracking-tighter">
           recipes
         </h1>
