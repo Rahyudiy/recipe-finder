@@ -6,6 +6,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
   fallback: ["Arial", "sans-serif"],
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
