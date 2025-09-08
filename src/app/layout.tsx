@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "TastyVerse - Explore Global Recipes 🌍🍜",
     description:
       "Bringing recipes from every corner of the world to your kitchen.",
-    url: "https://yourdomain.com", // change later
+    url: "https://recipe-finder-xi-bice.vercel.app/", 
     siteName: "TastyVerse",
     images: [
       {
