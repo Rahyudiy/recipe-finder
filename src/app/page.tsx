@@ -36,9 +36,10 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[url('/bg-noodle.png')] h-dvh bg-no-repeat w-full bg-contain bg-bottom overflow-x-hidden p-2">
+    <div className="bg-[url('/bg-noodle.webp')] h-dvh bg-no-repeat w-full bg-contain bg-bottom overflow-x-hidden p-2">
       {/* 🔹 Header */}
-      <Header></Header>
+      {/* 🔹 Header with search callback */}
+      <Header onSearch={(q) => setQuery(q)} />
       <motion.div
         animate={{
           y: [0, -15, 0],
@@ -47,11 +48,11 @@ export default function Home() {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={"/paprika.png"}
+          src={"/paprika.webp"}
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[10vw] drop-shadow-[#fad52f88] w-[10vw] "
+          className="fixed md:drop-shadow-2xl drop-shadow-xl ml-[10vw] drop-shadow-[#fad52f88] w-[14vw] md:w-[10vw] "
         ></Image>
       </motion.div>
       <motion.div
@@ -62,11 +63,11 @@ export default function Home() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={"/meat.png"}
+          src={"/meat.webp"}
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[85vw] -mt-[15vw]  w-[10vw] drop-shadow-[#da3b29af]"
+          className="fixed md:drop-shadow-2xl drop-shadow-xl ml-[85vw] -mt-[15vw]  w-[14vw] md:w-[10vw] drop-shadow-[#da3b29af]"
         ></Image>
       </motion.div>
       <motion.div
@@ -77,11 +78,11 @@ export default function Home() {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={"/basil.png"}
+          src={"/basil.webp"}
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[5vw] -mt-[15vw]  w-[10vw] drop-shadow-[#284917c7]"
+          className="fixed md:drop-shadow-2xl drop-shadow-xl ml-[5vw] -mt-[15vw]  w-[14vw] md:w-[10vw] drop-shadow-[#284917c7]"
         ></Image>
       </motion.div>
       <motion.div
@@ -92,11 +93,11 @@ export default function Home() {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
         <Image
-          src={"/chili.png"}
+          src={"/chili.webp"}
           width={150}
           height={150}
           alt="paprika"
-          className="fixed drop-shadow-2xl ml-[80vw] drop-shadow-[#ff00009d] w-[10vw] "
+          className="fixed md:drop-shadow-2xl drop-shadow-xl ml-[80vw] drop-shadow-[#ff00009d] w-[14vw] md:w-[10vw] "
         ></Image>
       </motion.div>
       {/* 🔹 Cards with motion */}
@@ -104,14 +105,14 @@ export default function Home() {
         <div className="flex justify-end mr-[18vw]">
           <button
             onClick={() => shuffleMeals()}
-            className="p-[0.4vw] rounded-full bg-[#FCBC30] hover:rotate-180 transition"
+            className="md:p-[0.4vw] p-[1vw] rounded-full bg-[#FCBC30] hover:rotate-180 transition"
           >
             <Image
               src={"/reload-data-1.svg"}
               width={50}
               height={50}
               alt="reload"
-              className="w-[4vw] "
+              className="md:w-[4vw] w-[6vw]"
             ></Image>
           </button>
         </div>
