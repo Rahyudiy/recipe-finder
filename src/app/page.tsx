@@ -7,8 +7,17 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function Home() {
-  const [allMeals, setAllMeals] = useState<any[]>([]);
-  const [meals, setMeals] = useState<any[]>([]);
+  type Meal = {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+  strCategory: string;
+  strArea: string;
+};
+
+
+  const [allMeals, setAllMeals] = useState<Meal[]>([]);
+  const [meals, setMeals] = useState<Meal[]>([]);
   const [query, setQuery] = useState("");
 
   useEffect(() => {

@@ -1,14 +1,23 @@
 "use client";
 
-import { image, p } from "motion/react-client";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   const { id } = useParams();
-  const [meal, setMeal] = useState<any>(null);
+  interface Meal {
+    strMeal: string;
+    strMealThumb: string;
+    strCategory: string;
+    strArea: string;
+    strYoutube: string;
+    strInstructions: string;
+    [key: string]: string | null; // allows strIngredientX, strMeasureX
+  }
+
+  const [meal, setMeal] = useState<Meal | null>(null);
 
   useEffect(() => {
     const fetchMeal = async () => {
@@ -36,7 +45,9 @@ const page = () => {
             className="md:w-[10vw] md:rounded-2xl rounded-md w-[50vw]"
           ></Image>
           <div className="w-full p-4">
-            <h1 className="font-semibold md:text-[1.5vw] text-[4vw]">{meal.strMeal}</h1>
+            <h1 className="font-semibold md:text-[1.5vw] text-[4vw]">
+              {meal.strMeal}
+            </h1>
             <div className="flex justify-evenly md:text-[1vw] text-[2vw] my-[1vw]">
               <p>{meal.strCategory}</p>
               <p>{meal.strArea}</p>
@@ -48,10 +59,20 @@ const page = () => {
               Watch tutorial
             </a>
           </div>
-            <Link href={`/`} className="p-2 rounded-full w-fit bg-[#FCBC30]"><Image src={"/back.svg"} width={150} height={150} className="md:w-[2vw] w-[4vw]" alt="back"></Image></Link>
+          <Link href={`/`} className="p-2 rounded-full w-fit bg-[#FCBC30]">
+            <Image
+              src={"/back.svg"}
+              width={150}
+              height={150}
+              className="md:w-[2vw] w-[4vw]"
+              alt="back"
+            ></Image>
+          </Link>
         </div>
         <div className="w-full bg-white p-4 rounded-2xl text-justify">
-          <h2 className="font-semibold md:text-[1.2vw] text-[2vw] mb-2">Ingredients</h2>
+          <h2 className="font-semibold md:text-[1.2vw] text-[2vw] mb-2">
+            Ingredients
+          </h2>
           <ul className="list-disc list-inside md:text-[1vw] text-[2vw]">
             {(() => {
               const items = [];
@@ -72,7 +93,9 @@ const page = () => {
             })()}
           </ul>
 
-          <h2 className="font-semibold md:text-[1.2vw] text-[2vw] mb-2 mt-[2vw]">Instructions</h2>
+          <h2 className="font-semibold md:text-[1.2vw] text-[2vw] mb-2 mt-[2vw]">
+            Instructions
+          </h2>
           <p className="md:text-[1vw] text-[2vw]">{meal.strInstructions}</p>
 
           {/* here the ingredent, */}
@@ -82,4 +105,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

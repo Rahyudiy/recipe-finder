@@ -21,9 +21,9 @@ const Header = ({ onSearch }: { onSearch: (q: string) => void }) => {
           recipes
         </h1>
         <div className="text-center md:text-[1vw] text-[2.5vw] tracking-tight">
-          <p>"TastyVerse is a universe of flavors, </p>
+          <p>&quot;TastyVerse is a universe of flavors, </p>
           <p>
-            bringing recipes from every corner of the world to your kitchen."
+            bringing recipes from every corner of the world to your kitchen.&quot;
             🍜✨
           </p>
         </div>

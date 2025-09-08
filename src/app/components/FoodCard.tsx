@@ -6,7 +6,7 @@ const FoodCard = ({ image, foodName, category, area }) => {
   return (
     <div>
       <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-        <div className="flex flex-col md:gap-[1vw] gap-[2vw] md:w-fit w-full min-w-[40vw] h-fit bg-[#F9FAFB] hover:bg-[#FCBC30] hover:opacity-100 hover:text-white text-black opacity-80 items-center md:rounded-2xl rounded-md md:p-[2vw] p-[4vw] shadow-lg hover:shadow-xl transition">
+        <div className="flex flex-col md:gap-[1vw] gap-[2vw] md:w-fit w-full md:min-w-fit min-w-[40vw] h-fit bg-[#F9FAFB] hover:bg-[#FCBC30] hover:opacity-100 hover:text-white text-black opacity-80 items-center md:rounded-2xl rounded-md md:p-[2vw] p-[4vw] shadow-lg hover:shadow-xl transition">
           <Image
             src={image}
             width={150}
