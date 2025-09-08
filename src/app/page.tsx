@@ -1,6 +1,6 @@
 "use client";
 import FoodCard from "./components/FoodCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import Header from "./components/Header";
 import Image from "next/image";
@@ -8,13 +8,12 @@ import { AnimatePresence, motion } from "motion/react";
 
 export default function Home() {
   type Meal = {
-  idMeal: string;
-  strMeal: string;
-  strMealThumb: string;
-  strCategory: string;
-  strArea: string;
-};
-
+    idMeal: string;
+    strMeal: string;
+    strMealThumb: string;
+    strCategory: string;
+    strArea: string;
+  };
 
   const [allMeals, setAllMeals] = useState<Meal[]>([]);
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -39,10 +38,13 @@ export default function Home() {
     fetchMeals();
   }, [query]);
 
-  const shuffleMeals = (list = allMeals) => {
-    const shuffled = [...list].sort(() => Math.random() - 0.5);
-    setMeals(shuffled.slice(0, 3));
-  };
+  const shuffleMeals = useCallback(
+    (list: Meal[] = allMeals) => {
+      const shuffled = [...list].sort(() => Math.random() - 0.5);
+      setMeals(shuffled.slice(0, 3));
+    },
+    [allMeals]
+  );
 
   return (
     <div className="bg-[url('/bg-noodle.webp')] h-dvh bg-no-repeat w-full bg-contain bg-bottom overflow-x-hidden p-2">

@@ -2,7 +2,14 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react"; // ✅ better import style
 
-const FoodCard = ({ image, foodName, category, area }) => {
+type FoodCardProps = {
+  image: string;
+  foodName: string;
+  category: string;
+  area: string;
+};
+
+const FoodCard = ({ image, foodName, category, area }: FoodCardProps) => {
   return (
     <div>
       <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
